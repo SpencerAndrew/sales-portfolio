@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spencer Andrew | Aspiring Sales Professional</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            400: '#34d399',
+                            500: '#10b981', // Emerald primary
+                            600: '#059669',
+                            900: '#064e3b',
+                        },
+                        dark: {
+                            900: '#0f172a', // Slate 900
+                            800: '#1e293b', // Slate 800
+                            700: '#334155', // Slate 700
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #10b981;
+        }
+
+        /* Animation Classes */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #34d399, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="w-8 h-8 bg-gradient-to-br from-brand-400 to-blue-500 rounded-lg flex items-center justify-center text-white font-bold text-xl">
+                        S
+                    </div>
+                    <span class="font-bold text-xl tracking-tight">Spencer <span class="text-brand-500">Andrew</span></span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Philosophy</a>
+                    <a href="#metrics" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Track Record</a>
+                    <a href="#experience" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Experience</a>
+                    <a href="#contact" class="bg-brand-500 hover:bg-brand-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all shadow-lg shadow-brand-500/30 transform hover:-translate-y-0.5">Let's Talk</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none p-2">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-800 border-b border-dark-700 absolute w-full">
+            <div class="px-2 pt-2 pb-6 space-y-1 sm:px-3 flex flex-col">
+                <a href="#about" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-dark-700 rounded-md">Philosophy</a>
+                <a href="#metrics" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-dark-700 rounded-md">Track Record</a>
+                <a href="#experience" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-dark-700 rounded-md">Experience</a>
+                <a href="#contact" class="block px-3 py-3 mt-4 text-center text-base font-medium bg-brand-500 text-white rounded-md mx-2">Let's Talk</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Background decorative elements -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] opacity-20 pointer-events-none">
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-500/30 to-transparent blur-3xl rounded-full mix-blend-screen"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                <div class="max-w-2xl fade-up">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-dark-800 border border-dark-700 text-sm text-gray-300 mb-6">
+                        <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+                        Available for Entry-Level Sales Opportunities
+                    </div>
+                    <h1 class="text-5xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+                        Driving <span class="gradient-text">Value</span>.<br>
+                        Building <span class="text-white">Trust</span>.
+                    </h1>
+                    <p class="text-xl text-gray-400 mb-8 leading-relaxed max-w-lg">
+                        Highly motivated professional with a strong foundation in communication and relationship-building. Eager to bring my drive, coachability, and problem-solving skills to a dynamic sales team.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contact" class="bg-brand-500 hover:bg-brand-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all text-center shadow-lg shadow-brand-500/25 flex items-center justify-center gap-2">
+                            View My Approach
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="relative lg:ml-auto fade-up delay-200">
+                    <!-- Decorative Frame -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-500 to-blue-500 rounded-3xl transform rotate-3 scale-105 opacity-20 blur-lg"></div>
+                    <div class="relative rounded-3xl overflow-hidden border border-dark-700 bg-dark-800 aspect-[4/5] max-w-md mx-auto shadow-2xl">
+                        <!-- Placeholder for Professional Headshot -->
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Alex Morgan" class="w-full h-full object-cover object-center mix-blend-luminosity hover:mix-blend-normal transition-all duration-700">
+                        
+                        <!-- Floating Badge -->
+                        <div class="absolute bottom-6 left-6 right-6 bg-dark-900/90 backdrop-blur-md p-4 rounded-2xl border border-dark-700 flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-brand-500/20 flex items-center justify-center">
+                                <svg class="w-6 h-6 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-400">Core Trait</p>
+                                <p class="font-bold text-white">Highly Coachable & Driven</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Metrics / The "Numbers" Section -->
+    <section id="metrics" class="py-12 border-y border-dark-700 bg-dark-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center fade-up">
+                    <p class="text-4xl lg:text-5xl font-extrabold text-white mb-2">100<span class="text-brand-500">%</span></p>
+                    <p class="text-sm uppercase tracking-wider text-gray-400 font-semibold">Commitment to Growth</p>
+                </div>
+                <div class="text-center fade-up delay-100">
+                    <p class="text-4xl lg:text-5xl font-extrabold text-white mb-2">24/7</p>
+                    <p class="text-sm uppercase tracking-wider text-gray-400 font-semibold">Student of the Game</p>
+                </div>
+                <div class="text-center fade-up delay-200">
+                    <p class="text-4xl lg:text-5xl font-extrabold text-white mb-2">1</p>
+                    <p class="text-sm uppercase tracking-wider text-gray-400 font-semibold">Goal: Add Value Daily</p>
+                </div>
+                <div class="text-center fade-up delay-300">
+                    <p class="text-4xl lg:text-5xl font-extrabold text-white mb-2">360<span class="text-brand-500">°</span></p>
+                    <p class="text-sm uppercase tracking-wider text-gray-400 font-semibold">Consultative Mindset</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sales Philosophy / About -->
+    <section id="about" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Selling isn't about pitching. It's about <span class="text-brand-400">solving</span>.</h2>
+                    <p class="text-gray-400 mb-6 text-lg leading-relaxed">
+                        My foundational approach to sales is rooted in deep discovery and radical transparency. I believe that true success comes not from pushing features, but from mapping capabilities to strategic business needs.
+                    </p>
+                    <p class="text-gray-400 mb-8 text-lg leading-relaxed">
+                        I am passionate about acting as a consultative partner. I am dedicating myself to mastering the fundamentals of outbound prospecting, objection handling, and relationship building to drive long-term retention.
+                    </p>
+                    
+                    <!-- Core Skills Pills -->
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 bg-dark-800 border border-dark-700 rounded-full text-sm font-medium text-gray-300">Active Listening</span>
+                        <span class="px-4 py-2 bg-dark-800 border border-dark-700 rounded-full text-sm font-medium text-gray-300">Resilience & Grit</span>
+                        <span class="px-4 py-2 bg-dark-800 border border-dark-700 rounded-full text-sm font-medium text-gray-300">Curiosity</span>
+                        <span class="px-4 py-2 bg-dark-800 border border-dark-700 rounded-full text-sm font-medium text-gray-300">CRM Fundamentals</span>
+                        <span class="px-4 py-2 bg-dark-800 border border-dark-700 rounded-full text-sm font-medium text-gray-300">Objection Handling</span>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 grid sm:grid-cols-2 gap-6 auto-rows-fr fade-up delay-200">
+                    <!-- Value Prop Cards -->
+                    <div class="bg-dark-800/50 p-8 rounded-2xl border border-dark-700 hover:border-brand-500/50 transition-colors h-full">
+                        <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Pipeline Generation</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Ready to aggressively source pipeline through targeted outbound outreach, research, and relentless network expansion.</p>
+                    </div>
+
+                    <div class="bg-dark-800/50 p-8 rounded-2xl border border-dark-700 hover:border-brand-500/50 transition-colors h-full">
+                        <div class="w-12 h-12 bg-brand-500/10 rounded-xl flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Continuous Learning</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Dedicated to understanding complex buying processes and absorbing product knowledge rapidly to serve clients effectively.</p>
+                    </div>
+
+                    <div class="bg-dark-800/50 p-8 rounded-2xl border border-dark-700 hover:border-brand-500/50 transition-colors h-full">
+                        <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Team Collaboration</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Committed to cross-functional alignment, working closely with leadership and peers to ensure smooth processes and shared wins.</p>
+                    </div>
+
+                    <div class="bg-dark-800/50 p-8 rounded-2xl border border-dark-700 hover:border-brand-500/50 transition-colors h-full">
+                        <div class="w-12 h-12 bg-yellow-500/10 rounded-xl flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Process & Discipline</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Driven by data and disciplined organization. I believe in maintaining rigorous qualification methodologies and CRM hygiene.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Experience -->
+    <section id="experience" class="py-24 bg-dark-800/30 border-y border-dark-700 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Professional Foundation</h2>
+                <p class="text-gray-400 text-lg">Building a strong baseline of transferable skills for a career in tech sales.</p>
+            </div>
+
+            <div class="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-dark-700 before:to-transparent">
+                
+                <!-- Job 1 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active fade-up">
+                    <!-- Marker -->
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-dark-900 bg-brand-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <!-- Card -->
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl bg-dark-800 border border-dark-700 hover:border-brand-500/50 transition-all shadow-xl min-h-[12rem]">
+                    </div>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group fade-up delay-100">
+                    <!-- Marker -->
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-dark-900 bg-dark-700 text-gray-400 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <!-- Card -->
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl bg-dark-800 border border-dark-700 hover:border-blue-500/50 transition-all shadow-xl min-h-[12rem]">
+                    </div>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group fade-up delay-200">
+                    <!-- Marker -->
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-dark-900 bg-dark-700 text-gray-400 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 group-hover:bg-purple-500 group-hover:text-white transition-colors">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <!-- Card -->
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl bg-dark-800 border border-dark-700 hover:border-purple-500/50 transition-all shadow-xl min-h-[12rem]">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof / Quotes -->
+    <section class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <h2 class="text-center text-sm font-bold tracking-widest text-brand-400 uppercase mb-12 fade-up">What Leadership Says</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-dark-800 p-8 rounded-2xl border border-dark-700 relative fade-up min-h-[16rem]">
+                </div>
+
+                <div class="bg-dark-800 p-8 rounded-2xl border border-dark-700 relative fade-up delay-100 min-h-[16rem]">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / CTA -->
+    <section id="contact" class="py-24 border-t border-dark-700 bg-gradient-to-b from-dark-900 to-dark-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-up">
+            <h2 class="text-4xl font-extrabold mb-6">Ready to scale your revenue?</h2>
+            <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+                Let's connect and discuss how my work ethic and drive can benefit your pipeline.
+            </p>
+            
+            <div class="bg-dark-900 border border-dark-700 rounded-3xl p-8 md:p-12 shadow-2xl max-w-2xl mx-auto text-left">
+                <form onsubmit="event.preventDefault(); showSuccessMessage();" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Name</label>
+                            <input type="text" required class="w-full bg-dark-800 border border-dark-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Email</label>
+                            <input type="email" required class="w-full bg-dark-800 border border-dark-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" placeholder="john@company.com">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2">Message</label>
+                        <textarea required rows="4" class="w-full bg-dark-800 border border-dark-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" placeholder="Let's talk about building pipeline..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-4 rounded-lg transition-colors flex items-center justify-center gap-2 text-lg">
+                        Send Message
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </button>
+                    <p id="success-msg" class="text-brand-400 text-sm text-center hidden mt-4 font-medium">Message sent! I'll be in touch shortly.</p>
+                </form>
+            </div>
+            
+            <div class="mt-12 flex justify-center gap-6">
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                    <span class="sr-only">LinkedIn</span>
+                    <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+                <a href="mailto:contact@example.com" class="text-gray-400 hover:text-white transition-colors">
+                    <span class="sr-only">Email</span>
+                    <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-900 py-8 border-t border-dark-800 text-center">
+        <p class="text-gray-500 text-sm">© <span id="year"></span> Spencer Andrew. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for interactivity -->
+    <script>
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Form Submission Mock
+        function showSuccessMessage() {
+            const msg = document.getElementById('success-msg');
+            msg.classList.remove('hidden');
+            setTimeout(() => {
+                msg.classList.add('hidden');
+                document.querySelector('form').reset();
+            }, 4000);
+        }
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-lg');
+                navbar.style.background = 'rgba(15, 23, 42, 0.95)';
+            } else {
+                navbar.classList.remove('shadow-lg');
+                navbar.style.background = 'rgba(15, 23, 42, 0.8)';
+            }
+        });
+
+        // Intersection Observer for Scroll Animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
